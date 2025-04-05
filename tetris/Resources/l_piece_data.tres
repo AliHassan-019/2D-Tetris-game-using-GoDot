@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c0moecpqx35ng"]
+
+[ext_resource type="Texture2D" uid="uid://brwaqd7xaloi" path="res://Assets/TetrisOrange.png" id="1_4pa7h"]
+[ext_resource type="Script" uid="uid://bwv1j68vptku" path="res://scripts/piece_data.gd" id="2_i63xq"]
+
+[resource]
+script = ExtResource("2_i63xq")
+piece_texture = ExtResource("1_4pa7h")
+tetromino_type = 4
+spawn_position = Vector2(-24, -456)

@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://cinhsb5fp1mvj"]
+
+[ext_resource type="Texture2D" uid="uid://h1rm57lnl2oo" path="res://Assets/border.png" id="1_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://cfybc5mthkky1" path="res://Assets/grid.png" id="2_8gbba"]
+[ext_resource type="Script" uid="uid://b46rkgoa4tq4a" path="res://scripts/piece_spawner.gd" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://dmkadjc4sjx8b" path="res://scripts/board.gd" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://dirxk7ntdvkm1" path="res://Scenes/tetromino.tscn" id="5_kry3j"]
+
+[node name="main" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Border" type="TextureRect" parent="."]
+offset_left = -256.0
+offset_top = -496.0
+offset_right = 1794.0
+offset_bottom = 3474.0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_bo1nx")
+
+[node name="GridTexture" type="TextureRect" parent="Border"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -961.0
+offset_top = -1921.0
+offset_right = 959.0
+offset_bottom = 1928.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8gbba")
+stretch_mode = 1
+
+[node name="Board" type="Node" parent="."]
+script = ExtResource("4_jjvhh")
+tetromino_scene = ExtResource("5_kry3j")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = -98.0
+offset_top = -630.0
+offset_right = 97.0
+offset_bottom = -517.0
+
+[node name="Label" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "NEXT TETROMINO:"
+horizontal_alignment = 1
+
+[node name="PieceSpawner" type="Node" parent="."]
+script = ExtResource("3_8gbba")
